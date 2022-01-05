@@ -1,19 +1,24 @@
 """
-This is a normal file
+This is a file with issues
 """
+
+import os, sys, pathlib
+
+camelCase = "should be snake_case"
 
 
 def main(num):
     """
     Prints the first N fibonacci numbers
     """
-    prev = 1
-    cur = 1
-    print(f"1: {prev}")
-    print(f"2: {cur}")
+    a = 1
+    b = 1
+    c = "unused"
+    print(f"1: {a}")
+    print(f"2: {b}")
     for nth in range(3, num):
-        prev, cur = cur, prev + cur
-        print(f"{nth}: {cur}")
+        a, b = b, a + b
+        print(f"{nth}: {b}")
 
 
 if __name__ == "__main__":
