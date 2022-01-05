@@ -20,6 +20,13 @@ def main(num):
         a, b = b, a + b
         print(f"{nth}: {b}")
 
+def unused_fn():
+        """ this one has really bad formatting """
+	a_dict = {
+	1,2,
+	3,
+		4,
+}
 
 if __name__ == "__main__":
     main(10)

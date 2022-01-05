@@ -21,3 +21,13 @@ jobs:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           reviewdog -reporter="github-pr-review" -runners="flake8" -tee
+  format-python:
+    name: Run python formatters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check files using the black formatter
+        uses: rickstaa/action-black@v1
+        id: action_black
+        with:
+          black_args: "."
