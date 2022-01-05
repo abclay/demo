@@ -31,8 +31,3 @@ jobs:
         id: action_black
         with:
           black_args: "."
-      - name: Annotate diff changes using reviewdog
-        if: ${{ failure() }}
-        uses: reviewdog/action-suggester@v1
-        with:
-          tool_name: blackfmt
