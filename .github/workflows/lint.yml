@@ -1,0 +1,23 @@
+name: Lint Code
+on: pull_request
+jobs:
+  lint-python:
+    name: Run python linters
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      # Setup the reviewdog app
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
+      # Install any linters we will use
+      - name: Install linters
+        run: |
+          pip install flake8
+      - name: Run linters
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          reviewdog -reporter="github-pr-review" -runners="flake8" -tee
