@@ -41,6 +41,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
+          # this needs to match the python version in the Pipfile (or find a good way to get pyenv installed)
           python-version: 3.9
       - name: Test with pipenv
         if: hashFiles('Pipfile') != ''
