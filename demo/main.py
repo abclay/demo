@@ -1,13 +1,20 @@
 """
 This is a normal file
 """
+import sys   # unused import LOL
+bad_formatting = [
+1,
+2,
+{3:
+4}]
 
 
 def fib(num):
     """
     Return that fib num
     """
-    if num <= 1:
+    # This line fails the test now
+    if num < 1:
         print(f"{num} == 1")
         return 1
     prev = 1

@@ -47,10 +47,10 @@ jobs:
         run: |
           pip install pipenv
           pipenv sync --dev
-          pipenv run python -m pytest
+          pipenv run python -m pytest -v
       - name: Test with poetry
         if: hashFiles('Pipfile') == ''
         run: |
           pip install poetry
           poetry install
-          poetry run python -m pytest
+          poetry run python -m pytest -v
