@@ -14,7 +14,7 @@ def fib(num):
     Return that fib num
     """
     # This line fails the test now
-    if num < 1:
+    if num < 5:     
         print(f"{num} == 1")
         return 1
     prev = 1
