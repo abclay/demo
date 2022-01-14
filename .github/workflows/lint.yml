@@ -38,6 +38,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install pipenv
+        run: |
+          pipx install pipenv
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -45,7 +49,6 @@ jobs:
       - name: Test with pipenv
         if: hashFiles('Pipfile') != ''
         run: |
-          pip install pipenv
           pipenv sync --dev
           pipenv run python -m pytest -v
       - name: Test with poetry
