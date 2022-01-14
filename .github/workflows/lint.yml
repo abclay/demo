@@ -5,7 +5,7 @@ jobs:
     name: Reused it!
     uses: abclay/reusable_workflows/.github/workflows/python_code_quality.yml@main
     with:
-      python-version: 3.7
+      python-version: 3.9
   # lint-python:
   #   name: Run python linters
   #   runs-on: ubuntu-latest
