@@ -3,7 +3,7 @@ on: pull_request
 jobs:
   reusable_workflow:
     name: Reused it!
-    uses: aclay/reusable_workflows/.github/workflows/python_code_quality.yml@main
+    uses: abclay/reusable_workflows/.github/workflows/python_code_quality.yml@main
     with:
       python-version: 3.7
   # lint-python:
