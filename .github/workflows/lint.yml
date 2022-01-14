@@ -1,4 +1,4 @@
-name: Lint Code
+name: Code Quality
 on: pull_request
 jobs:
   lint-python:
@@ -21,3 +21,22 @@ jobs:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           reviewdog -reporter="github-pr-review" -runners="flake8" -tee
+  run-pytest:
+    name: Run pytest
+    runs-on: ubunutu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Test with pipenv
+        if: hashFiles('Pipfile') != ''
+        run: |
+          pipenv sync --dev
+          pipenv run python -m pytest
+      - name: Test with poetry
+        if: hashFiles('Pipfile') == ''
+        run: |
+          poetry install
+          poetry run python -m pytest
